@@ -6,6 +6,10 @@ flask tur
 
    1. http://flask.pocoo.org/docs/tutorial/views/#tutorial-views
 
+   2. http://flask.pocoo.org/docs/templating/#jinja-setup
+
+   3. http://flask.pocoo.org/docs/errorhandling/
+
 2012.08.25
 ----------
 
