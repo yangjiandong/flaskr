@@ -1,6 +1,11 @@
 flask tur
 =========
 
+2012.08.26
+----------
+
+   1. http://flask.pocoo.org/docs/tutorial/views/#tutorial-views
+
 2012.08.25
 ----------
 
