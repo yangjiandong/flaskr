@@ -10,6 +10,11 @@ flask tur
 
    2. config
    http://flask.pocoo.org/docs/config/
+   
+   3. signals
+   http://flask.pocoo.org/docs/signals/
+   test:
+   def log_template_renders ...
 
 2012.08.26
 ----------

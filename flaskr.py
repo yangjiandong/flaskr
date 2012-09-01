@@ -110,6 +110,15 @@ def logout():
     flash('You were logged out')
     return redirect(url_for('show_entries'))
 
+#signals
+def log_template_renders(sender, template, context, **extra):
+    sender.logger.debug('Rendering template "%s" with context %s',
+            template.name or 'string template',
+            context)
+
+from flask import template_rendered
+template_rendered.connect(log_template_renders, app)
+
 if __name__ == '__main__':
     app.run()
 
