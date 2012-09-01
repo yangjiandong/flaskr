@@ -1,0 +1,9 @@
+FLASK:
+  DEBUG:True
+  DEBUG_WITH_APTANA:True
+  DATABASE: 'tmp/flaskr.db'
+  SECRET_KEY: 'DEVELOPMENT KEY'
+  USERNAME:'admin'
+  PASSWORD:'123'
+
+  

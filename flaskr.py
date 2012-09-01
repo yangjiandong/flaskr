@@ -15,6 +15,43 @@ PASSWORD='123'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+ADMINS = ['yourname@example.com']
+def create_app(config):
+    app = Flask(__name__)
+    app.config.from_pyfile(config)
+
+    if not app.debug:
+        import logging
+        from logging.handlers import SMTPHandler
+        mail_handler = SMTPHandler('127.0.0.1',
+                               'server-error@example.com',
+                               ADMINS, 'YourApplication Failed')
+        mail_handler.setLevel(logging.ERROR)
+        app.logger.addHandler(mail_handler)
+    else:
+        import logging
+        from logging import FileHandler
+        file_handler = FileHandler('app.log');
+        from logging import Formatter
+        file_handler.setFormatter(Formatter(
+            '%(asctime)s %(levelname)s: %(message)s '
+            '[in %(pathname)s:%(lineno)d]'))
+        app.logger.addHandler(file_handler)
+
+
+    return app
+
+# To allow aptana to receive errors, set use_debugger=False
+# 还有问题
+# appp = create_app(config="config.ini")
+
+if app.debug:
+    use_debugger = True
+try:
+    use_debugger = not(app.config.get('DEBUG_WITH_APTANA'))
+except:
+    pass
+
 def connect_db():
     return sqlite3.connect(app.config['DATABASE'])
 
@@ -37,6 +74,7 @@ def teardown_request(exception):
 def show_entries():
     cur =g.db.execute('select title, text from entries order by id desc')
     entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
+    app.logger.debug(entries)
     return render_template('show_entries.html', entries = entries)
 
 # add new entry
@@ -74,3 +112,6 @@ def logout():
 
 if __name__ == '__main__':
     app.run()
+
+    # app.run(use_debugger=use_debugger, debug = app.debug,
+            # user_reloader =use_debugger, host='0.0.0.0')

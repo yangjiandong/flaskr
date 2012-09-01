@@ -1,0 +1,10 @@
+.DS_Store
+*.pyc
+*.pyo
+*.whoosh
+*.db
+*.log
+env
+dist
+_mailinglist/*
+*.egg-info

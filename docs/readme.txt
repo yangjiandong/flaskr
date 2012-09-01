@@ -1,6 +1,16 @@
 flask tur
 =========
 
+2012.09.01
+----------
+
+   1. debug
+   http://flask.pocoo.org/docs/errorhandling/ 
+   If you’re using Aptana/Eclipse for debugging you’ll need to set both use_debugger and use_reloader to False.
+
+   2. config
+   http://flask.pocoo.org/docs/config/
+
 2012.08.26
 ----------
 
