@@ -16,6 +16,17 @@ flask tur
    test:
    def log_template_renders ...
 
+   4. tag 0.1
+   简单app
+   
+   5. larger application
+   flaskr\
+      static\
+      templates\
+      __init__.py
+      views.py
+   runserver.py
+
 2012.08.26
 ----------
 
