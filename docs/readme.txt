@@ -26,6 +26,10 @@ flask tur
       __init__.py
       views.py
    runserver.py
+   
+   tag 0.2
+
+   6. http://flask.pocoo.org/docs/patterns/appfactories/ 
 
 2012.08.26
 ----------
